@@ -39,6 +39,9 @@ function eventsHandler(req, res, next) {
   }
 
   clients.push(newClient);
+  res.write(`NEW CLIENT : ${newClient.id}`)
+  console.log("LIST CLIENTS: ", clients.map(client => client.id))
+  // console.log("LIST CLIENTS : ", clients)
 
   req.on("close", () => {
     console.log(`${clientId} Connection closed`);
